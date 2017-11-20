@@ -1,13 +1,19 @@
 <template>
     <div id="top">
-      <span class="fl ion ion-ios-undo ion-size18"></span>
-      标题
+      <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
+      详情浏览
       <span class="fr ion ion-navicon ion-size24"></span>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    export default {};
+    export default {
+      methods: {
+        routerBack () {
+          this.$router.go(-1);
+        }
+      }
+    };
 </script>
 
 <style type="text/css">

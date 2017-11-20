@@ -15,6 +15,7 @@ import evidence from 'components/evidence/evidence.vue';
 import legal from 'components/legal/legal.vue';
 import personal from 'components/personal/personal.vue';
 import wordlist from 'components/wordlist/wordlist.vue';
+import wordDetail from 'components/wordDetail/wordDetail.vue';
 
 Vue.config.productionTip = false;
 
@@ -63,6 +64,14 @@ const router = new VueRouter({
         top: top,
         content: personal,
         footer: footer
+      }
+    },
+    {
+      path: '/wordDetail/:id',
+      name: 'wordDetail',
+      components: {
+        top: top,
+        content: wordDetail
       }
     }
   ]
