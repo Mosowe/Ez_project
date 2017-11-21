@@ -1,7 +1,6 @@
 <template>
   <div class="content">
-    <vtop :topName="topName"></vtop>
-    <vlist :list="wordlist"></vlist>
+    <vlist :list="wordlist" :topName="topName"></vlist>
   </div>
 </template>
 

@@ -39,32 +39,28 @@ const router = new VueRouter({
       path: '/wordlist',
       name: 'wordlist',
       components: {
-        content: wordlist,
-        footer: footer
+        content: wordlist
       }
     },
     {
       path: '/evidence',
       name: 'evidence',
       components: {
-        content: evidence,
-        footer: footer
+        content: evidence
       }
     },
     {
       path: '/legal',
       name: 'legal',
       components: {
-        content: legal,
-        footer: footer
+        content: legal
       }
     },
     {
       path: '/personal',
       name: 'personal',
       components: {
-        content: personal,
-        footer: footer
+        content: personal
       }
     },
     {
