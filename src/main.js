@@ -60,7 +60,8 @@ const router = new VueRouter({
       path: '/personal',
       name: 'personal',
       components: {
-        content: personal
+        content: personal,
+        footer: footer
       }
     },
     {

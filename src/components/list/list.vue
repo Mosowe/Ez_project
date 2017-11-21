@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vtop :topName="topName"></vtop>
+    <vtop :topName="topName" :topNav="topNav"></vtop>
     <div class="newproject">
       <router-link :to="{name: 'wordDetail', params: {id:item}}" class="list" v-for="item in list">
         <img :src="item.imgUrl" v-if="item.imgUrl">
@@ -29,6 +29,9 @@
       },
       topName: {
         type: String
+      },
+      topNav: {
+        type: Array
       }
     }
   };

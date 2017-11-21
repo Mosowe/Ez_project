@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <vlist :list="wordlist" :topName="topName"></vlist>
+    <vlist :list="wordlist" :topName="topName" :topNav="topNav"></vlist>
   </div>
 </template>
 
@@ -16,6 +16,7 @@
     data () {
       return {
         topName: null,
+        topNav: null,
         wordlist: {}
       };
     },
@@ -25,6 +26,7 @@
         if (response.errno === ERR_OK) {
           this.wordlist = response.data.data;
           this.topName = response.data.name;
+          this.topNav = response.data.nav;
         }
       });
     }

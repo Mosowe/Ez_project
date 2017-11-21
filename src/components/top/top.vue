@@ -1,8 +1,13 @@
 <template>
-    <div id="top">
+    <div id="top" v-if="topName">
       <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
       {{ topName }}
-      <span class="fr ion ion-navicon ion-size24"></span>
+      <span class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
+      <nav v-if="topNav">
+        <div class="navbox">
+          <span v-for="item in topNav">{{ item }}</span>
+        </div>
+      </nav>
     </div>
 </template>
 
@@ -10,8 +15,10 @@
     export default {
       props: {
         topName: {
-          type: String,
-          default: '列表1'
+          type: String
+        },
+        topNav: {
+          type: Array
         }
       },
       methods: {
@@ -24,7 +31,6 @@
 
 <style type="text/css">
   #top {
-    overflow: hidden;
     position: fixed;
     left: 0;
     top: 0;
@@ -38,4 +44,6 @@
   }
 
   #top span{ margin: 0}
+  #top nav{ overflow: hidden; width: 100%; height: 500px; position: absolute; left: 0; top: 41px;}
+  #top nav .navbox{ overflow: hidden; float: right; width: 50%; background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px #ccc}
 </style>
