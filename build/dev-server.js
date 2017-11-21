@@ -24,6 +24,7 @@ apiRoutes.get('/wordlist',function(rep,res){
   res.json(
     {
       errno:0,
+      name:wordlist.name,
       data:wordlist
     }
   )
@@ -32,6 +33,7 @@ apiRoutes.get('/evidence',function(rep,res){
   res.json(
     {
       errno:0,
+      name:study.name,
       data:study
     }
   )
@@ -40,6 +42,7 @@ apiRoutes.get('/legal',function(rep,res){
   res.json(
     {
       errno:0,
+      name: zatan.name,
       data:zatan
     }
   )

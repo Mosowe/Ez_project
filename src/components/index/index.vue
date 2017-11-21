@@ -4,7 +4,7 @@
       <h2>最新作品</h2>
       <router-link to="" class="more">查看更多</router-link>
     </div>
-    <vlist :wordlist="wordlist"></vlist>
+    <vlist :list="wordlist"></vlist>
   </div>
 </template>
 
@@ -24,7 +24,7 @@
       this.$http.get('/api/wordlist').then((response) => {
         response = response.body;
         if (response.errno === ERR_OK) {
-          this.wordlist = response.data.data;
+          this.wordlist = response.data;
         }
       });
     }

@@ -28,6 +28,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/index',
+      name: 'index',
       components: {
         top: header,
         content: index,
@@ -36,6 +37,7 @@ const router = new VueRouter({
     },
     {
       path: '/wordlist',
+      name: 'wordlist',
       components: {
         top: top,
         content: wordlist,
@@ -44,6 +46,7 @@ const router = new VueRouter({
     },
     {
       path: '/evidence',
+      name: 'evidence',
       components: {
         top: top,
         content: evidence,
@@ -52,6 +55,7 @@ const router = new VueRouter({
     },
     {
       path: '/legal',
+      name: 'legal',
       components: {
         top: top,
         content: legal,
@@ -60,6 +64,7 @@ const router = new VueRouter({
     },
     {
       path: '/personal',
+      name: 'personal',
       components: {
         top: top,
         content: personal,

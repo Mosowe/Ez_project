@@ -1,8 +1,9 @@
 <template>
     <div id="top">
       <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
-      详情浏览
-      <span class="fr ion ion-navicon ion-size24"></span>
+      <em v-if="this.$route.params.name">{{ this.$route.params.name }}</em>
+      <em v-else>默认标题</em>
+      <span class="fr ion ion-navicon ion-size24" v-if="this.$route.params.nav"></span>
     </div>
 </template>
 
