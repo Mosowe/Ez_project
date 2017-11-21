@@ -17,14 +17,17 @@
     },
     data () {
       return {
-        wordlist: {}
+        wordlist: []
       };
     },
     created () {
       this.$http.get('/api/wordlist').then((response) => {
         response = response.body;
         if (response.errno === ERR_OK) {
-          this.wordlist = response.data;
+          for (var n = 0; n < 3; n++) {
+            this.wordlist.push(response.data.data[n]);
+          }
+//          this.wordlist = response.data.data;
         }
       });
     }

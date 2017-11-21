@@ -67,7 +67,7 @@ textarea::-moz-placeholder {color:#B3B3B3;}
 textarea:-ms-input-placeholder {color:#B3B3B3;}
 select{color:#B3B3B3;}
 
-
+.content{ overflow: hidden; width: 94%; padding: 10px 3%; padding-top: 50px;}
 
 
 

@@ -1,13 +1,12 @@
 <template>
     <div class="newproject">
-      <router-link :to="{name: 'wordDetail', params: {id:item, name:item.name, nav:list.nav}}" class="list" v-for="item in list.data">
+      <router-link :to="{name: 'wordDetail', params: {id:item}}" class="list" v-for="item in list">
         <img :src="item.imgUrl" v-if="item.imgUrl">
         <div class="listCont">
           <h3>{{item.title}}</h3>
-          <p>{{item.link}}</p>
+          <p>{{item.content}}</p>
           <span>{{item.time}}</span>
         </div>
-
       </router-link>
   </div>
 </template>

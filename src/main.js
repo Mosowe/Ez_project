@@ -8,7 +8,7 @@ import VueSwiper from 'vue-awesome-swiper';
 
 import header from 'components/header/header.vue';
 import footer from 'components/footer/footer.vue';
-import top from 'components/top/top.vue';
+// import top from 'components/top/top.vue';
 
 import index from 'components/index/index.vue';
 import evidence from 'components/evidence/evidence.vue';
@@ -39,7 +39,6 @@ const router = new VueRouter({
       path: '/wordlist',
       name: 'wordlist',
       components: {
-        top: top,
         content: wordlist,
         footer: footer
       }
@@ -48,7 +47,6 @@ const router = new VueRouter({
       path: '/evidence',
       name: 'evidence',
       components: {
-        top: top,
         content: evidence,
         footer: footer
       }
@@ -57,7 +55,6 @@ const router = new VueRouter({
       path: '/legal',
       name: 'legal',
       components: {
-        top: top,
         content: legal,
         footer: footer
       }
@@ -66,7 +63,6 @@ const router = new VueRouter({
       path: '/personal',
       name: 'personal',
       components: {
-        top: top,
         content: personal,
         footer: footer
       }
@@ -75,7 +71,6 @@ const router = new VueRouter({
       path: '/wordDetail/:id',
       name: 'wordDetail',
       components: {
-        top: top,
         content: wordDetail
       }
     }
