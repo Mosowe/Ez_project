@@ -19,6 +19,7 @@ const appData = require('../data.json')
 const wordlist = appData.wordlist
 const study = appData.study
 const zatan = appData.zatan
+const user = appData.user
 const apiRoutes = express.Router()
 apiRoutes.get('/wordlist',function(rep,res){
   res.json(
@@ -44,6 +45,15 @@ apiRoutes.get('/legal',function(rep,res){
       errno:0,
       name: zatan.name,
       data:zatan
+    }
+  )
+})
+apiRoutes.get('/user',function(rep,res){
+  res.json(
+    {
+      errno:0,
+      name: user.name,
+      data:user
     }
   )
 })

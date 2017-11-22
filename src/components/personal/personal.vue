@@ -1,11 +1,51 @@
 <template>
-<div>个人中心</div>
+<div class="personal">
+  <div class="per_show">
+    <div class="per_bg"></div>
+    <img :src="user.userPhoto" width="50" v-if="user">
+    <img src="./example01.png" v-else>
+    <span v-if="user">{{ user.userName }}</span>
+    <router-link to="/login" v-else><span>请登陆</span></router-link>
+  </div>
+  <div class="per_cho">
+    <router-link to="/personalDetail" :class="user ? 0:'disabled'"><span class="ion ion-ios-person-outline"></span>个人信息</router-link>
+  </div>
+  <div class="per_cho">
+    <router-link to=""><span class="ion ion-ios-help-outline"></span>使用帮助</router-link>
+    <router-link to=""><span class="ion ion-compose"></span>意见反馈</router-link>
+    <router-link to=""><span class="ion ion-happy-outline"></span>关于软件</router-link>
+  </div>
+  <div class="per_cho">
+    <router-link to=""><span class="ion ion-android-exit"></span>退出登陆</router-link>
+  </div>
+</div>
 </template>
 
 <script type="text/ecmascript-6">
-    export default {};
+  export default {
+    props: {
+      user: {
+        type: Object
+      }
+    }
+  };
 </script>
 
-<style>
-
+<style type="text/css">
+.personal{ overflow: hidden; width: 100%;}
+.personal .per_show{ overflow: hidden; padding: 30px 0; position: relative}
+.personal .per_bg {
+  overflow: hidden;
+  background: url("0.jpg") no-repeat center;
+  background-size: cover;
+  filter: blur(5px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.personal .per_show img{ filter: blur(0px); position: relative; display: block; margin: 0 auto; z-index: 2; margin-bottom: 10px;}
+.personal .per_show span{ filter: blur(0px); position: relative; display: block; width: 100%; text-align: center; z-index: 2; font-size: 18px; color: #fff}
+.disabled { pointer-events: none; }
 </style>

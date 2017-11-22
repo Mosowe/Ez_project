@@ -1,9 +1,17 @@
 <template>
+<<<<<<< HEAD
     <div id="top" v-if="topName" @click="menuhide">
       <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
       {{ topName }}
       <span @click="menushow" class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
       <nav v-if="topNav" @click="menuhide">
+=======
+    <div id="top">
+      <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
+      <em v-if="topName">{{ topName }}</em>
+      <span class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
+      <nav v-if="topNav">
+>>>>>>> 41cb793510d91c4f567725f30c2ffc669f8e6541
         <div class="navbox">
           <span v-for="(item,index) in topNav" data-item="mmde" id="item" @click="menuchoose(index)">{{ item }}</span>
         </div>
