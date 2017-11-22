@@ -16,6 +16,8 @@ import legal from 'components/legal/legal.vue';
 import personal from 'components/personal/personal.vue';
 import wordlist from 'components/wordlist/wordlist.vue';
 import wordDetail from 'components/wordDetail/wordDetail.vue';
+import personalDetail from 'components/personal/personalDetail.vue';
+import resetPassword from 'components/personal/resetPassword.vue';
 
 Vue.config.productionTip = false;
 
@@ -69,6 +71,20 @@ const router = new VueRouter({
       name: 'wordDetail',
       components: {
         content: wordDetail
+      }
+    },
+    {
+      path: '/personalDetail',
+      name: 'personalDetail',
+      components: {
+        content: personalDetail
+      }
+    },
+    {
+      path: '/resetPassword',
+      name: 'resetPassword',
+      components: {
+        content: resetPassword
       }
     }
   ]

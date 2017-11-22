@@ -69,5 +69,9 @@ select{color:#B3B3B3;}
 
 .content{ overflow: hidden; width: 94%; padding: 10px 3%; padding-top: 50px;}
 
+.per_cho{ overflow: hidden; width: 94%; padding: 10px 3%; border-bottom: 5px solid #B3B3B3; font-size: 14px;}
+.per_cho a{ display: block; overflow: hidden; padding: 8px 0; border-bottom: 1px solid #eee}
+.per_cho a:last-child,.personal .per_cho:last-child{ border-bottom: 0}
+.per_cho a span{ margin-right: 5px; color: #999; font-size: 16px; vertical-align: middle}
 
 

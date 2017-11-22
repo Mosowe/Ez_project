@@ -1,7 +1,7 @@
 <template>
-    <div id="top" v-if="topName">
+    <div id="top">
       <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
-      {{ topName }}
+      <em v-if="topName">{{ topName }}</em>
       <span class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
       <nav v-if="topNav">
         <div class="navbox">

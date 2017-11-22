@@ -13,7 +13,6 @@
 </script>
 
 <style type="text/css">
-  @import "../../common/css/icon.css";
   footer {
     overflow: hidden;
     width: 100%;

@@ -413,5 +413,12 @@
         "content": "利用浏览器标识处理 if( window.navigator.userAgent.toLowerCase().indexOf('mobile')== -1 ){ el.onclick = function(){}"
       }
     ]
+  },
+  "user" : {
+    "name": "个人信息",
+    "userId" : "13277082678",
+    "userName": "小马",
+    "userPassword": "111111",
+    "userPhoto" : "./static/img/example01.png"
   }
 }
