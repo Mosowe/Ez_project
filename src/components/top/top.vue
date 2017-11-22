@@ -1,32 +1,44 @@
 <template>
-    <div id="top" v-if="topName">
+    <div id="top" v-if="topName" @click="menuhide">
       <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
       {{ topName }}
-      <span class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
-      <nav v-if="topNav">
+      <span @click="menushow" class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
+      <nav v-if="topNav" @click="menuhide">
         <div class="navbox">
-          <span v-for="item in topNav">{{ item }}</span>
+          <span v-for="(item,index) in topNav" data-item="mmde" id="item" @click="menuchoose(index)">{{ item }}</span>
         </div>
       </nav>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-    export default {
-      props: {
-        topName: {
-          type: String
-        },
-        topNav: {
-          type: Array
-        }
+  import jq from 'jquery';
+  export default {
+    props: {
+      topName: {
+        type: String
       },
-      methods: {
-        routerBack () {
-          this.$router.go(-1);
-        }
+      topNav: {
+        type: Array
       }
-    };
+    },
+    methods: {
+      routerBack () {
+        this.$router.go(-1);
+      },
+      menushow (e) {
+        e.stopPropagation();
+        jq('nav').slideToggle();
+      },
+      menuhide () {
+        jq('nav').slideUp();
+      },
+      menuchoose (e) {
+        event.stopPropagation();
+        jq('nav span').eq(e).addClass('active');
+      }
+    }
+  };
 </script>
 
 <style type="text/css">
@@ -44,6 +56,32 @@
   }
 
   #top span{ margin: 0}
-  #top nav{ overflow: hidden; width: 100%; height: 500px; position: absolute; left: 0; top: 41px;}
-  #top nav .navbox{ overflow: hidden; float: right; width: 50%; background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px #ccc}
+  #top nav {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    left: 0;
+    top: 41px;
+  }
+
+  #top nav .navbox {
+    overflow: hidden;
+    float: right;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 10px #ccc; padding: 5px 0;
+  }
+ #top nav span {
+   display: block;
+   width: 85%;
+   margin: 0 auto;
+   text-align: left;
+   font-size: 12px;
+   padding: 10px 5%;
+   border-bottom: 1px solid #eee;
+ }
+  #top nav span.active{ color: #007aff}
 </style>
