@@ -1,6 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
+import Vuex from 'vuex';
 import App from './App';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
@@ -25,6 +26,7 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(VueSwiper);
+Vue.use(Vuex);
 const router = new VueRouter({
   linkActiveClass: 'active',
   routes: [
@@ -65,23 +67,9 @@ const router = new VueRouter({
         requireAuth: true  // 添加该字段，表示进入这个路由是需要登录的
       },
       components: {
-        content: resolve => require(['components/login/login.vue'], resolve)
-        // footer: footer
+        content: resolve => require(['components/personal/personal.vue'], resolve),
+        footer: footer
       }
-      // beforeEach: (to, from, next) => {
-      //   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-      //     if (store.state.token) {  // 通过vuex state获取当前的token是否存在
-      //       next();
-      //     } else {
-      //       next({
-      //         path: '/login',
-      //         query: {redirect: to.fullPath}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
-      //       })
-      //     }
-      //   } else {
-      //     next();
-      //   }
-      // }
     },
     {
       path: '/wordDetail/:id',
@@ -107,6 +95,9 @@ const router = new VueRouter({
     {
       path: '/login',
       name: 'login',
+      meta: {
+        requireAuth: false
+      },
       components: {
         content: login
       }
@@ -114,9 +105,34 @@ const router = new VueRouter({
   ]
 });
 
+const store = new Vuex.Store({
+  state: {
+    token: false
+  },
+  mutations: {
+    setToken (state, bool) {
+      state.token = bool
+    }
+  }
+})
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
+    if (store.state.token) {  // 通过vuex state获取当前的token是否存在
+      next();
+    } else {
+      next({
+        path: '/login',
+        query: {redirect: to.personal}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+      });
+    };
+  } else {
+    next();
+  };
+});
 router.push('/index');
 
 new Vue({
   router,
+  store,
   render: (h) => h(App)
 }).$mount('#app');

@@ -69,9 +69,11 @@ select{color:#B3B3B3;}
 
 .content{ overflow: hidden; width: 94%; padding: 10px 3%; padding-top: 50px;}
 
-.per_cho{ overflow: hidden; width: 94%; padding: 10px 3%; border-bottom: 5px solid #B3B3B3; font-size: 14px;}
+.per_cho{ overflow: hidden; width: 94%; padding: 10px 3%; border-bottom: 5px solid #f2f2f2; font-size: 14px;}
 .per_cho a{ display: block; overflow: hidden; padding: 8px 0; border-bottom: 1px solid #eee}
 .per_cho a:last-child,.personal .per_cho:last-child{ border-bottom: 0}
 .per_cho a span{ margin-right: 5px; color: #999; font-size: 16px; vertical-align: middle}
 
+.m-dailog{ display: none; text-align: center; overflow: hidden; width: 100%; height: 100%; position: fixed; left: 0; top: 0; z-index: 99999}
+.m-dailog span{ padding: 8px 10px; background-color: rgba(0,0,0,0.8); font-size: 0.9rem; color: #fff; border-radius: 5px; display: inline-block; position: relative; top: 50%;}
 

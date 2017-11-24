@@ -3,36 +3,46 @@
       <vtop></vtop>
       <label>
         <span class="ion ion-person ion-size14"></span>
-        <input type="text" placeholder="用户名" id="username"/>
+        <input type="text" placeholder="用户名" id="username" v-model="username"/>
       </label>
       <label>
         <span class="ion ion-android-lock ion-size14"></span>
-        <input type="text" placeholder="密码" id="userpsd"/>
+        <input type="password" placeholder="密码" id="userpsd" v-model="userpsd"/>
       </label>
-      <div class="warning">错误提示</div>
-      <button type="submit" onclick="login">登陆</button>
+      <span @click="login" class="button">登陆</span>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
   import vtop from '../top/top.vue';
-
+  import {dialog} from 'static/js/index';
   export default {
     components: {
       vtop
     },
     data () {
       return {
-        user: {}
+        username: '',
+        userpsd: ''
       };
     },
     methods: {
       login () {
-        this.$store.commit('setToken', 'true');     // 改变token状态
-        let redirect = decodeURIComponent(this.$route.query.redirect || '/');  // 获取登录成功后要跳转的路由。
-        this.$router.push({
-          path: redirect
-        });
+        this.$http.get('/api/user').then((response) => {
+          response = response.body;
+          if (this.username === response.data.userId && this.userpsd === response.data.userPassword) {
+            this.$store.commit('setToken', 'true');
+            let redirect = decodeURIComponent(this.$route.query.redirect || '/personal'); // 获取登录成功后要跳转的路由。
+            const that = this;
+            dialog('登陆成功', function () {
+              that.$router.push({
+                path: redirect
+              })
+            })
+          } else {
+            dialog('登陆失败')
+          }
+        })
       }
     }
   };
@@ -43,6 +53,6 @@
   #login label span{ width: 10%; float: left; text-align: center; height: 30px; line-height: 30px; color: #007aff}
   #login input{ width: 90%; border: none; line-height: 30px; outline: none}
   #login .warning{  width: 80%; margin: 0 auto; height: 20px; line-height: 20px; color: red}
-  #login button{ display: block; width: 80%; margin: 20px auto; outline: none; background-color: #007aff; color: #fff; border: none; border-radius: 5px; padding: 7px 0;}
+  #login .button{ text-align: center; display: block; width: 80%; margin: 20px auto; outline: none; background-color: #007aff; color: #fff; border: none; border-radius: 5px; padding: 7px 0;}
 
 </style>

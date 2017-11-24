@@ -8,7 +8,10 @@
     <router-link to="/login" v-else><span>请登陆</span></router-link>
   </div>
   <div class="per_cho">
-    <router-link to="/personalDetail" :class="user ? 0:'disabled'"><span class="ion ion-ios-person-outline"></span>个人信息</router-link>
+    <router-link to="/personalDetail"><span class="ion ion-ios-person-outline"></span>个人信息</router-link>
+  </div>
+  <div class="per_cho">
+    <router-link to=""><span class="ion ion-ios-person-outline"></span>编辑</router-link>
   </div>
   <div class="per_cho">
     <router-link to=""><span class="ion ion-ios-help-outline"></span>使用帮助</router-link>
