@@ -32,11 +32,11 @@
           response = response.body;
           if (this.username === response.data.userId && this.userpsd === response.data.userPassword) {
             this.$store.commit('setToken', 'true');
-            let redirect = decodeURIComponent(this.$route.query.redirect || '/personal'); // 获取登录成功后要跳转的路由。
             const that = this;
             dialog('登陆成功', function () {
               that.$router.push({
-                path: redirect
+                name: 'personal',
+                params: {userId: that.username}
               })
             })
           } else {
