@@ -1,6 +1,6 @@
 <template>
     <div id="top">
-      <span @click="routerBack" class="fl ion ion-ios-undo ion-size18"></span>
+      <span @click="routerBack" class="fl ion ion-ios-undo ion-size18" v-if="backIcon"></span>
       <em v-if="topName">{{ topName }}</em>
       <span @click="menushow" class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
       <nav v-if="topNav" @click="menuhide">
@@ -15,11 +15,11 @@
   import jq from 'jquery';
   export default {
     props: {
-      topName: {
-        type: String
-      },
-      topNav: {
-        type: Array
+      topName: {},
+      topNav: {},
+      backIcon: {
+        type: Boolean,
+        default: true
       }
     },
     methods: {

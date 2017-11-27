@@ -13,7 +13,7 @@ import footer from 'components/footer/footer.vue';
 import index from 'components/index/index.vue';
 import evidence from 'components/evidence/evidence.vue';
 import legal from 'components/legal/legal.vue';
-// import personal from 'components/personal/personal.vue';
+import personal from 'components/personal/personal.vue';
 import wordlist from 'components/wordlist/wordlist.vue';
 import wordDetail from 'components/wordDetail/wordDetail.vue';
 import personalDetail from 'components/personal/personalDetail.vue';
@@ -63,11 +63,11 @@ const router = new VueRouter({
     {
       path: '/personal',
       name: 'personal',
-      meta: {
-        requireAuth: true  // 添加该字段，表示进入这个路由是需要登录的
-      },
+      // meta: {
+      //   requireAuth: true  // 添加该字段，表示进入这个路由是需要登录的
+      // },
       components: {
-        content: resolve => require(['components/personal/personal.vue'], resolve),
+        content: personal,
         footer: footer
       }
     },
@@ -105,34 +105,34 @@ const router = new VueRouter({
   ]
 });
 
-const store = new Vuex.Store({
-  state: {
-    token: false
-  },
-  mutations: {
-    setToken (state, bool) {
-      state.token = bool
-    }
-  }
-})
-router.beforeEach((to, from, next) => {
-  if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-    if (store.state.token) {  // 通过vuex state获取当前的token是否存在
-      next();
-    } else {
-      next({
-        path: '/login',
-        query: {redirect: to.personal}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
-      });
-    };
-  } else {
-    next();
-  };
-});
+// const store = new Vuex.Store({
+//   state: {
+//     token: false
+//   },
+//   mutations: {
+//     setToken (state, bool) {
+//       state.token = bool
+//     }
+//   }
+// })
+// router.beforeEach((to, from, next) => {
+//   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
+//     if (store.state.token) {  // 通过vuex state获取当前的token是否存在
+//       next();
+//     } else {
+//       next({
+//         path: '/login'
+//         // query: {redirect: to.personal}  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+//       });
+//     };
+//   } else {
+//     next();
+//   };
+// });
 router.push('/index');
 
 new Vue({
   router,
-  store,
+  // store,
   render: (h) => h(App)
 }).$mount('#app');

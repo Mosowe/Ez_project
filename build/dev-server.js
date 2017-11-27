@@ -13,7 +13,6 @@ const proxyMiddleware = require('http-proxy-middleware')
 const webpackConfig = require('./webpack.dev.conf')
 
 const express = require('express')
-
 const app = express()
 const appData = require('../data.json')
 const wordlist = appData.wordlist

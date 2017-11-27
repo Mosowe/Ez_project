@@ -4,7 +4,7 @@
       <h2>最新作品</h2>
       <router-link to="/wordlist" class="more">查看更多</router-link>
     </div>
-    <vlist :list="wordlist"></vlist>
+    <vlist :list="wordlist" :topshow="false"></vlist>
   </div>
 </template>
 

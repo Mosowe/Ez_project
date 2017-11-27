@@ -3,31 +3,57 @@
       <vtop :topName="topName"></vtop>
       <label>
         <span class="ion ion-android-lock ion-size14"></span>
-        <input type="text" placeholder="原密码"/>
+        <input type="text" placeholder="原密码" id="oldpsd" v-model="oldpsd"/>
       </label>
       <label>
         <span class="ion ion-android-lock ion-size14"></span>
-        <input type="text" placeholder="新密码"/>
+        <input type="text" placeholder="新密码" id="newpsd1" v-model="newpsd1"/>
       </label>
       <label>
         <span class="ion ion-android-lock ion-size14"></span>
-        <input type="text" placeholder="确认新密码"/>
+        <input type="text" placeholder="确认新密码" id="newpsd2" v-model="newpsd2"/>
       </label>
-      <div class="warning">错误提示</div>
       <button type="submit">提交</button>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
   import vtop from '../top/top.vue';
+  import {dialog, getCookie} from '../../../static/js/myPlug.js';
+
   export default {
     components: {
       vtop
     },
     data () {
       return {
-        topName: '密码修改'
+        topName: '密码修改',
+        oldpsd: '',
+        newpsd1: '',
+        newpsd2: ''
       };
+    },
+    methods: {
+      resetpsd () {
+        let password = getCookie('password');
+        if (this.oldpsd !== password || this.oldpsd === null) {
+          dialog('原密码不正确')
+        } else {
+          if (this.newpsd1 !== '' && this.newpsd2 !== '') {
+            if (this.newpsd1 === password) {
+              dialog('新密码不能与原密码相同')
+            } else {
+              if (this.newpsd2 !== this.newpsd1) {
+                dialog('两次输入新密码不一致')
+              } else {
+                dialog('修改成功')
+              }
+            }
+          } else {
+            dialog('请输入新密码')
+          }
+        }
+      }
     }
   };
 </script>
