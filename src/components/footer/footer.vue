@@ -28,7 +28,7 @@
 
   footer a {
     flex: 1;
-    padding: 0 0 .2rem 0;
+    padding: 0.3rem 0 .5rem 0;
     font-size: .8rem;
     color: #6e6e6e;
     text-align: center

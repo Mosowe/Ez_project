@@ -2,7 +2,7 @@
     <div id="top">
       <span @click="routerBack" class="fl ion ion-ios-undo ion-size18" v-if="backIcon"></span>
       <em v-if="topName">{{ topName }}</em>
-      <span @click="menushow" class="fr ion ion-navicon ion-size24" v-if="topNav"></span>
+      <span @click="menushow" class="fr ion ion-navicon ion-size26" v-if="topNav"></span>
       <nav v-if="topNav" @click="menuhide">
         <div class="navbox">
           <span v-for="(item,index) in topNav" data-item="mmde" id="item" @click="menuchoose(index)">{{ item }}</span>
@@ -89,4 +89,5 @@
    border-bottom: 1px solid #eee;
  }
   #top nav span.active{ color: #007aff}
+  #top em{ font-size: 16px}
 </style>
