@@ -29,7 +29,14 @@ Vue.use(VueSwiper);
 Vue.use(Vuex);
 const router = new VueRouter({
   linkActiveClass: 'active',
-  mode: 'history',
+  mode: 'history',      // history模式
+  scrollBehavior (to, from, savedPosition) {  // 路由切换的时候页面回到顶部,第三个参数 savedPosition 当且仅当 popstate 导航 (通过浏览器的 前进/后退 按钮触发) 时才可用。
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  },
   routes: [
     {
       path: '/index',
