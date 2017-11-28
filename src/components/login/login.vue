@@ -1,6 +1,6 @@
 <template>
     <div id="login" class="content">
-      <vtop></vtop>
+      <vtop :backPath="backPath"></vtop>
       <label>
         <span class="ion ion-person ion-size14"></span>
         <input type="text" placeholder="用户名" id="username" v-model="username"/>
@@ -28,6 +28,7 @@
     },
     data () {
       return {
+        backPath: 'index',
         username: '',
         userpsd: ''
       };

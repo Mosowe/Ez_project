@@ -15,6 +15,7 @@
   import jq from 'jquery';
   export default {
     props: {
+      backPath: '',
       topName: {},
       topNav: {},
       backIcon: {
@@ -24,7 +25,11 @@
     },
     methods: {
       routerBack () {
-        this.$router.go(-1);
+        if (this.backPath !== 'index') {
+          this.$router.go(-1);
+        } else {
+          this.$router.push('/index')
+        }
       },
       menushow (e) {
         e.stopPropagation();
