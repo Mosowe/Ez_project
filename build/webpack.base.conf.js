@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const utils = require('./utils')
-const config = require('../config')
+const config = require('../config')  // config.build.assetsRoot值设置的地方
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
@@ -10,10 +10,10 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js'  // 设置了webpack的入口文件
   },
   output: {
-    path: config.build.assetsRoot,
+    path: config.build.assetsRoot,  // 设置了webpack的打包后的文件存放路径
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
